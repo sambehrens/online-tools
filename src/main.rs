@@ -19,10 +19,12 @@ async fn main() {
         .and(warp::body::form())
         .map(
             |simple_map: HashMap<String, String>| match simple_map.get("inputString") {
-                Some(request) => {
-                    warp::reply::html(format!(r#"<p class="result">{}: {:x}</p>"#, request, md5::compute(request)))
-                }
-                None => warp::reply::html("<p>Bad request</p>".to_owned()),
+                Some(request) => warp::reply::html(format!(
+                    r#"<tr class="result"><td>{}</td><td>{:x}</td></tr>"#,
+                    request,
+                    md5::compute(request)
+                )),
+                None => warp::reply::html("<p>Missing request</p>".to_owned()),
             },
         );
     let md5_encode = warp::path("md5").and(md5_encode);

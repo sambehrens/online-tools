@@ -11,10 +11,11 @@ body {
   max-width: 60rem;
   padding: 0 1rem;
 }
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+textarea {
+  height: 15rem;
+}
+button {
+  padding: 0.5rem 1rem;
 }
 .result {
   padding: 0.5rem;
@@ -22,12 +23,30 @@ form {
 .result:first-child {
   border: 2px solid orange;
 }
+table {
+  width: 100%;
+    border-collapse: collapse;
+}
+td,th {
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+}
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.gap-m {
+  gap: 1rem;
+}
   </style>
   </head>
 
   <body>
     <h1>Hash a string using MD5</h1>
-    <form hx-post="/md5/encode" hx-swap="afterbegin" hx-target="#results">
+    <div class="flex flex-col gap-m">
+    <form class="flex flex-col gap-m" hx-post="/md5/encode" hx-swap="afterbegin" hx-target="#results">
       <label for"inputString">Input string:</label>
       <textarea
         id="inputString"
@@ -36,12 +55,19 @@ form {
         placeholder="Your string to encode..."
         autofocus
         hx-post="/md5/encode"
-        hx-trigger="keyup changed delay:1s"
+        hx-trigger="keyup changed delay:1s, keydown[metaKey&&key=='Enter'] from:body"
         hx-sync="closest form:abort"
         ></textarea>
-      <button>Compute</button>
+      <button>Compute (Cmd + Enter)</button>
     </form>
-    <div id="results">
+    <table>
+      <tr>
+        <th>Input</th>
+        <th>MD5 Hash</th>
+      </tr>
+      <tbody id="results">
+      </tbody>
+    </table>
     </div>
   </body>
 </html>
