@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MD5 Encode</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/modern-normalize@2.0.0/modern-normalize.css"> -->
+  <style>
+html {
+  font-family:
+      system-ui,
+      'Segoe UI',
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      'Apple Color Emoji',
+      'Segoe UI Emoji';
+}
+body {
+  margin: auto;
+  max-width: 60rem;
+  padding: 1rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.result {
+  padding: 0.5rem;
+}
+.result:first-child {
+  border: 2px solid orange;
+}
+  </style>
+  </head>
+
+  <body>
+    <h1>Hash a string using MD5</h1>
+    <form hx-post="/md5/encode" hx-swap="afterbegin" hx-target="#results">
+      <label for"inputString">Input string:</label>
+      <textarea
+        id="inputString"
+        name="inputString"
+        type="text"
+        placeholder="Your string to encode..."
+        autofocus
+        hx-post="/md5/encode-live"
+        hx-trigger="change"
+        hx-sync="closest form:abort"
+        ></textarea>
+      <button>Compute</button>
+    </form>
+    <div id="results">
+    </div>
+  </body>
+</html>
