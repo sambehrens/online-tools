@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <link rel="stylesheet" href="https://unpkg.com/modern-normalize@2.0.0/modern-normalize.css">
+  <style>
+body {
+  margin: auto;
+  max-width: 60rem;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Keeps footer at the bottom */
+}
+footer {
+  margin-top: auto;
+    text-align: center;
+}
+a {
+  color: dodgerblue;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: slateblue;
+}
+footer ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+footer ul li::after {
+  content: "•";
+  padding-left: 0.5rem;
+  color: gray;
+}
+footer ul li:last-child::after {
+  content: "";
+}
+textarea {
+  height: 15rem;
+}
+button {
+  padding: 0.5rem 1rem;
+}
+input, textarea {
+  padding: 0.5rem;
+}
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.gap-m {
+  gap: 1rem
+}
+tr:nth-child(2) {
+  border: 2px solid orange;
+}
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+tr:only-of-type {
+  display: none;
+}
+td,th {
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+}
+  </style>
+  </head>
+
+  <body>
+    {body}
+    <footer>
+<ul>
+  <li><a href="/md5">MD5 Encode</a></li>
+  <li><a href="/count-occurences">Count string occurences</a></li>
+  <li><a href="/sort-numerically">Sort lines numerically</a></li>
+  <li><a href="/sort-alphabetically">Sort lines alphabetically</a></li>
+</ul>
+<p>
+  Open source:
+  <a
+    href="https://github.com/sambehrens/online-tools"
+    target="_blank"
+    rel="noopener noreferrer"
+    >GitHub</a
+  >
+</p>
+    </footer>
+  </body>
+</html>

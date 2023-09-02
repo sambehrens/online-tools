@@ -8,6 +8,8 @@ edition = "2021"
 [dependencies]
 tokio = { version = "1", features = ["full"] }
 warp = { version = "0.3", features = ["multipart", "compression"] }
+html-escape = "0.2.13"
+regex = "1.9.4"
 
-# needed for tools
+# needed for individual tools
 md5 = "0.7"
