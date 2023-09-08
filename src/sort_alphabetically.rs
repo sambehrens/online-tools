@@ -12,7 +12,7 @@ fn root(
     project_root: &str,
 ) -> impl Filter<Extract = (impl warp::Reply,), Error = warp::Rejection> + Clone {
     let html =
-        fs::read_to_string(format!("{}/html/sort_alphabetically.html", project_root)).unwrap();
+        fs::read_to_string(format!("{}/src/html/sort_alphabetically.html", project_root)).unwrap();
     warp::path!("sort-alphabetically")
         .and(warp::path::end())
         .map(move || warp::reply::html(crate::build_page("Sort Alphabetically", &html)))

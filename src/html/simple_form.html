@@ -1,23 +1,23 @@
-<h1>Hash a string using MD5</h1>
+<h1>{{heading}}</h1>
 <div class="flex flex-col gap-m">
-<form class="flex flex-col gap-m" hx-post="/md5/encode" hx-swap="afterend" hx-target="#results">
+  <form class="flex flex-col gap-m" hx-post="{{action_route}}" hx-swap="afterend" hx-target="#results">
   <label for"inputString">Input string:</label>
   <textarea
     id="inputString"
     name="inputString"
     type="text"
-    placeholder="Your string to encode..."
+    placeholder="{{input_placeholder}}"
     autofocus
-    hx-post="/md5/encode"
+    hx-post="{{action_route}}"
     hx-trigger="keydown[metaKey&&key=='Enter'] from:body"
     hx-sync="closest form:abort"
     ></textarea>
-  <button>Compute (Cmd + Enter)</button>
+  <button>{{action_button_text}} (Cmd + Enter)</button>
 </form>
 <table>
   <tr id="results">
     <th>Input</th>
-    <th>MD5 Hash</th>
+    <th>{{result_table_header}}</th>
     <th>Copy Result</th>
   </tr>
 </table>

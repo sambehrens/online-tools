@@ -11,7 +11,7 @@ pub fn route(
 fn root(
     project_root: &str,
 ) -> impl Filter<Extract = (impl warp::Reply,), Error = warp::Rejection> + Clone {
-    let html = fs::read_to_string(format!("{}/html/count_occurences.html", project_root)).unwrap();
+    let html = fs::read_to_string(format!("{}/src/html/count_occurences.html", project_root)).unwrap();
     warp::path!("count-occurences")
         .and(warp::path::end())
         .map(move || warp::reply::html(crate::build_page("Count Occurences", &html)))
