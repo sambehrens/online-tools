@@ -12,4 +12,8 @@ html-escape = "0.2.13"
 regex = "1.9.4"
 
 # needed for individual tools
+md2 = "0.10.2"
+md4 = "0.10.2"
 md5 = "0.7"
+sha1 = "0.10.5"
+sha2 = "0.10.7"

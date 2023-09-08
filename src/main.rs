@@ -18,8 +18,12 @@ async fn main() {
     
     let routes = index
         .or(clicked)
+        .or(hashers::MD2.route())
+        .or(hashers::MD4.route())
         .or(hashers::MD5.route())
         .or(hashers::SHA1.route())
+        .or(hashers::SHA256.route())
+        .or(hashers::SHA512.route())
         .or(count_occurences::route(&root))
         .or(sort_alphabetically::route(&root))
         .or(sort_numerically::route(&root));
